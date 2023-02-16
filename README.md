@@ -1,3 +1,7 @@
 # Scorpion-balance-board
-hello!!
-This team is composed by Isaac, David, Hortense and Aïda.
+
+## Authors
+Isaac
+David
+Hortense
+Aïda
