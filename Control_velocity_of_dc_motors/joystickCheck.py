@@ -12,11 +12,13 @@ for event in gamepad.read_loop():
     if event.type == ecodes.EV_KEY or event.type == ecodes.EV_ABS:
         if event.value == 1:
             button_pressed = True
-            print("pressed", event.code)
             ser.write(str(event.code).encode())
         elif event.value == 0 and button_pressed:
-            print("released", event.code)
-#             ser.write(str(event.code).encode())
+            sleep(1)
+            if event.code == 310:
+                ser.write(str(10).encode())
+            elif event.code == 311:
+                ser.write(str(11).encode())
 
 # close port
 ser.close() 

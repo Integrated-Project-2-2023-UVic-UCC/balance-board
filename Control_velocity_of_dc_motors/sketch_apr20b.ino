@@ -74,38 +74,29 @@ void parar(){  /*Función para que las ruedas paren*/
 void loop()  {  
   if (Serial.available() > 0){
     number = Serial.parseInt();
-    Serial.print("Sent number is :");
-    Serial.println(number);
     if (number == 313 || number == 312 ) {
-      Serial.println("Stop");
       parar(); // Stop
     }
     else if (number == 307) {
-      Serial.println("Move forward");
       derecha_horario_izquierda_antihorario(); // start moving forward
-      }
+    }
     else if (number == 304) {
-      Serial.println("Move backard");
       derecha_antihorario_izquierda_horario(); // start moving backward
-      }
+    }
     else if (number == 310) {
-      Serial.println("Turn left");
       giro_antihorario(); // turn left
-      }
-    else if (number == 10) {
-      // stop turning left
-      Serial.println("Stop turning left");
-      }
+    }
     else if (number == 311) {
-      Serial.println("Turn right");
       giro_horario(); // turn right
-      }
-    else if (number == 11) {
-      // stop turning right
-      Serial.println("Stop turning right");
-      }
+    }
+    else if (number == 10 || number == 11) {
+      // stop turning left or right
+      parar(); // Stop
     }
   }
+}
+
+
 
 
 
