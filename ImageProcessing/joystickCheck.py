@@ -1,5 +1,6 @@
 from evdev import InputDevice, categorize, ecodes
 from time import sleep
+<<<<<<< HEAD
 import serial
 
 # Open serial port
@@ -27,3 +28,17 @@ for event in gamepad.read_loop():
 
 # close port
 ser.close() 
+=======
+
+
+gamepad = InputDevice('/dev/input/event4')
+
+x_btn = 307
+
+for event in gamepad.read_loop():
+    print("looping")
+    if event.type == ecodes.EV_KEY or event.type == ecodes.EV_ABS:
+        print("event code", event.code)
+        if event.code == x_btn:
+            print("X button pressed")
+>>>>>>> bd2cb482064f0f0ba9242bf1842f64435736815f
